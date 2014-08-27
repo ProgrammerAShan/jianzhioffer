@@ -5,13 +5,11 @@ import java.util.Stack;
 import DataStructureLib.TreeNode;
 import DataStructureLib.erchaTree;
 
-public class TreeInterator
-{
+public class TreeInterator {
 
 	private static Stack<TreeNode> treeStatckNodesset;
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode node = new TreeNode(6);
 		TreeNode node2 = new TreeNode(1);
@@ -50,10 +48,8 @@ public class TreeInterator
 
 	}
 
-	public static void prebianli(TreeNode root)
-	{
-		if (root != null)
-		{
+	public static void prebianli(TreeNode root) {
+		if (root != null) {
 			System.out.print(Integer.toString(root.value));
 			System.out.print(" ");
 			TreeNode leftNode = root.left;
@@ -68,23 +64,19 @@ public class TreeInterator
 	/**
 	 * TODO
 	 */
-	public static void prebianlistacknew(TreeNode root)
-	{
+	public static void prebianlistacknew(TreeNode root) {
 
 		TreeNode pNode = root;
 		treeStatckNodesset = new Stack<>();
-		while (pNode != null || !treeStatckNodesset.isEmpty())
-		{
-			while (pNode != null)
-			{
+		while (pNode != null || !treeStatckNodesset.isEmpty()) {
+			while (pNode != null) {
 				System.out.print(Integer.toString(pNode.value));
 				System.out.print(" ");
 				treeStatckNodesset.push(pNode);
 				pNode = pNode.left;
 
 			}
-			if (!treeStatckNodesset.isEmpty())
-			{
+			if (!treeStatckNodesset.isEmpty()) {
 				TreeNode node = treeStatckNodesset.pop();
 
 				pNode = node.right;
@@ -93,20 +85,16 @@ public class TreeInterator
 
 	}
 
-	public static void prebianlistack()
-	{
-		while (!treeStatckNodesset.isEmpty())
-		{
+	public static void prebianlistack() {
+		while (!treeStatckNodesset.isEmpty()) {
 			TreeNode node = treeStatckNodesset.pop();
 			System.out.print(Integer.toString(node.value));
 			System.out.print(" ");
-			if (node.right != null)
-			{
+			if (node.right != null) {
 				treeStatckNodesset.push(node.right);
 			}
 
-			if (node.left != null)
-			{
+			if (node.left != null) {
 				treeStatckNodesset.push(node.left);
 			}
 
@@ -114,13 +102,10 @@ public class TreeInterator
 
 	}
 
-	public static void zhongbianli(TreeNode root)
-	{
-		if (root == null)
-		{
+	public static void zhongbianli(TreeNode root) {
+		if (root == null) {
 			return;
-		} else
-		{
+		} else {
 			zhongbianli(root.left);
 			System.out.print(Integer.toString(root.value));
 			System.out.print(" ");
@@ -128,19 +113,15 @@ public class TreeInterator
 		}
 	}
 
-	public static void zhongbianlistack(TreeNode root)
-	{
+	public static void zhongbianlistack(TreeNode root) {
 		treeStatckNodesset = new Stack<>();
 		TreeNode pNode = root;
-		while (!treeStatckNodesset.isEmpty() || pNode != null)
-		{
-			while (pNode != null)
-			{
+		while (!treeStatckNodesset.isEmpty() || pNode != null) {
+			while (pNode != null) {
 				treeStatckNodesset.push(pNode);
 				pNode = pNode.left;
 			}
-			if (!treeStatckNodesset.isEmpty())
-			{
+			if (!treeStatckNodesset.isEmpty()) {
 				TreeNode node = treeStatckNodesset.pop();
 				System.out.print(Integer.toString(node.value));
 				System.out.print(" ");
@@ -151,10 +132,8 @@ public class TreeInterator
 		}
 	}
 
-	public static void houbianli(TreeNode root)
-	{
-		if (root != null)
-		{
+	public static void houbianli(TreeNode root) {
+		if (root != null) {
 			houbianli(root.left);
 			houbianli(root.right);
 			System.out.print(Integer.toString(root.value));
@@ -163,34 +142,27 @@ public class TreeInterator
 		}
 	}
 
-	public static void houbianlistack(TreeNode root)
-	{
+	public static void houbianlistack(TreeNode root) {
 		treeStatckNodesset = new Stack<>();
 		TreeNode pNode = root;
 		TreeNode preNode = null;
 		treeStatckNodesset.push(root);
-		while (!treeStatckNodesset.isEmpty())
-		{
-			pNode=treeStatckNodesset.peek();
+		while (!treeStatckNodesset.isEmpty()) {
+			pNode = treeStatckNodesset.peek();
 			if ((pNode.left == null && pNode.right == null)
-					|| (preNode != null && (preNode == pNode.left || preNode == pNode.right)))
-			{
+					|| (preNode != null && (preNode == pNode.left || preNode == pNode.right))) {
 				System.out.print(Integer.toString(pNode.value));
 				System.out.print(" ");
 				pNode = treeStatckNodesset.pop();
 				preNode = pNode;
-			}
-			else {
-				if (pNode.right != null)
-				{
+			} else {
+				if (pNode.right != null) {
 					treeStatckNodesset.push(pNode.right);
 				}
-				if (pNode.left != null)
-				{
+				if (pNode.left != null) {
 					treeStatckNodesset.push(pNode.left);
 				}
 			}
-		
 
 		}
 
